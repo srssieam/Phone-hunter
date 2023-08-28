@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone hunter</title>
+    <!-- tailwindcss and daisyui cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-style{
+            border:1px solid gray;
+            border-radius: 12px;
+        }
+        .not-found{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+    </style>
+</head>
+<body class="dark:bg-none">
+    <header class="lg:px-56 py-9 px-9 flex justify-between">
+        <h1 class="text-2xl font-bold text-gray-700">Hot Gadgets</h1>
+        <button class="btn btn-primary">Login</button>
+    </header>
+    <main class="max-w-6xl mx-auto px-9">
+        <!-- search section -->
+        <section class="text-center">
+            <div class="flex items-center justify-center gap-1">
+                <input id="search-field" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs bg-gray-200" />
+                <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+            </div>
+        </section>
+
+        <!-- search result -->
+        <section>
+            <!-- spinner or loader -->
+            <div id="loading-spinner" class="text-center h-[70vh] hidden">
+                <span class="loading loading-dots loading-lg text-cyan-400 relative top-[50%]"></span>
+            </div>
+            <div id="phone-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                
+            </div>
+            <div id="not-found" class="hidden not-found">
+                <h1 class="text-center text-4xl font-bold text-red-700">No Phone Found</h1>
+            </div>
+            <!-- show all button -->
+            <div id="show-all-container" class="hidden text-center my-9">
+                <button onclick="handleShowAll()" id="show-all-btn" class="btn btn-accent">Show All</button>
+            </div>
+        </section>
+
+        <!-- show details model -->
+        <!-- Open the modal using ID.showModal() method -->
+            <dialog id="show_detail_modal" class="modal modal-bottom sm:modal-middle">
+            <form method="dialog" class="modal-box">
+                <h3 id="phone-name" class="font-bold text-lg">
+                    
+                </h3>
+                <div id="show-detail-container">
+
+                </div>
+                <div class="modal-action">
+                <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-accent">Close</button>
+                </div>
+            </form>
+            </dialog>
+    </main>
+
+    <script src="js/phone.js"></script>
+</body>
+</html>
